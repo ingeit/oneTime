@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>OneTime</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form>
+  </form>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Nombre: </ion-label>
+          <ion-input [(ngModel)]="nombre" type="text" placeholder="Ingrese nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Apellido: </ion-label>
+          <ion-input [(ngModel)]="apellido" type="text" placeholder="Ingrese apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Email: </ion-label>
+          <ion-input [(ngModel)]="mail" type="text" placeholder="Ingrese email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Usuario: </ion-label>
+          <ion-input [(ngModel)]="username" type="text" placeholder="Ingrese usuario"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Clave: </ion-label>
+          <ion-input [(ngModel)]="password" type="password" placeholder="Ingrese clave"></ion-input>
+        </ion-item>
+        <div padding>
+          <ion-button color="primary" block (click)="registrarUsuario()">Registrar</ion-button>
+          <ion-button color="secondary" block (click)="ingresarUsuario()">Ingresar</ion-button>
+        </div>
+      </ion-list>
+
+</ion-content>
