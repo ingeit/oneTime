@@ -8,14 +8,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginPage } from "../pages/login/login.page";
+import { SignInPage } from "../pages/signin/signin.page";
 import { UserService } from '../providers/user/user.service';
 import { ApiService } from '../providers/api/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, LoginPage],
+  declarations: [AppComponent, SignInPage],
   entryComponents: [],
   imports: [
     BrowserModule,
