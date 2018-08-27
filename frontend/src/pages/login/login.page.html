@@ -6,33 +6,70 @@
 
 <ion-content padding>
 
-  <form>
-  </form>
-      <ion-list>
-        <ion-item>
-          <ion-label floating>Nombre: </ion-label>
-          <ion-input [(ngModel)]="nombre" type="text" placeholder="Ingrese nombre"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Apellido: </ion-label>
-          <ion-input [(ngModel)]="apellido" type="text" placeholder="Ingrese apellido"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Email: </ion-label>
-          <ion-input [(ngModel)]="mail" type="text" placeholder="Ingrese email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Usuario: </ion-label>
-          <ion-input [(ngModel)]="username" type="text" placeholder="Ingrese usuario"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Clave: </ion-label>
-          <ion-input [(ngModel)]="password" type="password" placeholder="Ingrese clave"></ion-input>
-        </ion-item>
-        <div padding>
-          <ion-button color="primary" block (click)="registrarUsuario()">Registrar</ion-button>
-          <ion-button color="secondary" block (click)="ingresarUsuario()">Ingresar</ion-button>
-        </div>
-      </ion-list>
+  <ion-list>
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="registrarUsuario">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input autofocus formControlName="nombre" type="text"></ion-input>
+      </ion-item>
+      <ion-item style="color: #ea6153;" *ngIf="!form.controls.nombre.valid 
+      && (form.controls.nombre.dirty || formSubmitAttempt || form.controls.nombre.touched )">
+        <span>Ingrese nombre!</span>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input formControlName="apellido" type="text"></ion-input>
+      </ion-item>
+      <ion-item style="color: #ea6153;" *ngIf="!form.controls.apellido.valid  
+      && (form.controls.apellido.dirty || formSubmitAttempt || form.controls.apellido.touched)">
+        <p>Ingrese apellido!</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="mail" type="email"></ion-input>
+      </ion-item>
+      <ion-item style="color: #ea6153;" *ngIf="!form.controls.mail.valid  
+        && (form.controls.mail.dirty || formSubmitAttempt || form.controls.mail.touched)">
+        <p>Ingrese email!</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="username" type="text"></ion-input>
+      </ion-item>
+      <ion-item style="color: #ea6153;" *ngIf="!form.controls.username.valid  
+          && (form.controls.username.dirty || formSubmitAttempt || form.controls.username.touched)">
+        <p>Ingrese usuario!</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Clave</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+      <ion-item style="color: #ea6153;" *ngIf="!form.controls.password.valid  
+            && (form.controls.password.dirty || formSubmitAttempt || form.controls.password.touched)">
+        <p>Ingrese clave!</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Repita clave</ion-label>
+        <ion-input formControlName="passwordRepeat" type="password"></ion-input>
+      </ion-item>
+      <ion-item style="color: #ea6153;" *ngIf="!form.controls.passwordRepeat.valid  
+            && (form.controls.passwordRepeat.dirty || formSubmitAttempt || form.controls.passwordRepeat.touched)">
+        <p>Repita la clave!</p>
+      </ion-item>
+
+
+      <hr />
+      <div padding>
+        <ion-button expand="full" color="primary" (click)="registrarUsuario()">Registrar</ion-button>
+        <hr />
+        <ion-button expand="full" color="light" (click)="ingresarUsuario()">Cancelar</ion-button>
+      </div>
+    </form>
+  </ion-list>
 
 </ion-content>

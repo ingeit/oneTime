@@ -1,0 +1,18 @@
+.ios, .md {
+    app-login {
+        .invalid {
+            border: 1px solid #ea6153 !important;
+        }
+    }
+}
+
+ion-item {
+    width: 240px !important;
+}
+
+ion-list{
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

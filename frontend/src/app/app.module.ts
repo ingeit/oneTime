@@ -12,7 +12,7 @@ import { LoginPage } from "../pages/login/login.page";
 import { UserService } from '../providers/user/user.service';
 import { ApiService } from '../providers/api/api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, LoginPage],
@@ -22,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserService,

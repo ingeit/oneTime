@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from "../../providers";
 import { Usuario } from "../../models/Usuario";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -15,11 +16,36 @@ export class LoginPage {
   mail: string;
   username: string;
   password: string;
-  
-  constructor(private userSrv: UserService) {
-   }
-  
+  passwordRepeat: string;
+
+  isReadyToSave: boolean;
+  submitAttempt: boolean;
+  formSubmitAttempt: boolean;
+
+  form: FormGroup;
+  slideOneForm: FormGroup;
+  slideTwoForm: FormGroup;
+
+  constructor(private userSrv: UserService, private formBuilder: FormBuilder) {
+
+    this.form = formBuilder.group({
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      mail: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      passwordRepeat: ['', Validators.required],
+    });
+
+    this.form.valueChanges.subscribe((v) => {
+      this.isReadyToSave = this.form.valid;
+    });
+
+  }
+
   async registrarUsuario() {
+    this.formSubmitAttempt = true;
+
     this.us = {
       nombre: this.nombre,
       apellido: this.apellido,
@@ -27,10 +53,15 @@ export class LoginPage {
       username: this.username,
       password: this.password
     }
-    this.userSrv.registrar(this.us).then(res => {
-      // this.mostrarModal(res,'green');
-      console.log('Todo bien, usuario registrado! :D', res);
-    }).catch(e => console.log('Todo MAL, ERROR', e));
+
+    !this.form.valid ? console.log("form para registrar NO es valido") : console.log("form para registrar es valido");
+
+    if (this.form.valid) {
+      this.userSrv.registrar(this.us).then(res => {
+        // this.mostrarModal(res,'green');
+        console.log('Todo bien, usuario registrado! :D', res);
+      }).catch(e => console.log('Todo MAL, ERROR', e));
+    }
   }
 
 }
