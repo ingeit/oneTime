@@ -23,8 +23,15 @@ export class LoginPage {
   formSubmitAttempt: boolean;
 
   form: FormGroup;
-  slideOneForm: FormGroup;
-  slideTwoForm: FormGroup;
+
+  validation_messages = {
+    nombre: [
+      { type: 'required', message: 'Ingrese nombre!' }
+    ],
+    apellido: [
+      { type: 'required', message: 'Ingrese apellido!' }
+    ],
+  }
 
   constructor(private userSrv: UserService, private formBuilder: FormBuilder) {
 
@@ -58,8 +65,10 @@ export class LoginPage {
 
     if (this.form.valid) {
       this.userSrv.registrar(this.us).then(res => {
+
         // this.mostrarModal(res,'green');
         console.log('Todo bien, usuario registrado! :D', res);
+
       }).catch(e => console.log('Todo MAL, ERROR', e));
     }
   }
