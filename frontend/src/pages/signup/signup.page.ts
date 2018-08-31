@@ -52,19 +52,21 @@ export class SignUpPage {
 
   async registrarUsuario() {
     this.formSubmitAttempt = true;
-
+    console.log('mostrando valores',this.form.value)
     this.us = {
-      nombre: this.nombre,
-      apellido: this.apellido,
-      mail: this.mail,
-      username: this.username,
-      password: this.password
+      nombre: this.form.value.nombre,
+      apellido: this.form.value.apellido,
+      mail: this.form.value.mail,
+      username: this.form.value.username,
+      password: this.form.value.password
     }
+
+    console.log(this.us)  
 
     !this.form.valid ? console.log("form para registrar NO es valido") : console.log("form para registrar es valido");
 
     if (this.form.valid) {
-      this.userSrv.registrar(this.us).then(res => {
+      this.userSrv.registrar(this.form.value).then(res => {
 
         // this.mostrarModal(res,'green');
         console.log('Todo bien, usuario registrado! :D', res);

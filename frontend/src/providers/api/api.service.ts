@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +14,7 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  url: string = 'http://ingeit.ddns.net:3000/api';
+  url: string = 'https://ingeit.ddns.net/onetime/api';
 
   get(endpoint: string, params?: any, reqOpts?: any) {
     if (!reqOpts) {
@@ -33,7 +39,7 @@ export class ApiService {
       'Content-Type': 'application/json'
     });
     console.log('BODY: ',body);
-    return this.http.post(this.url + '/' + endpoint, body, { headers: header }).toPromise();
+    return this.http.post(this.url + '/' + endpoint, body, httpOptions).toPromise();
   }
 
   put(endpoint: string, body: any, reqOpts?: any) {

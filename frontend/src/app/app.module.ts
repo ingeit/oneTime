@@ -7,15 +7,16 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { SignInPage } from "../pages/signin/signin.page";
-import { UserService } from '../providers/user/user.service';
-import { ApiService } from '../providers/api/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { UserService } from '../providers/user/user.service';
+import { ApiService } from '../providers/api/api.service';
+import { SignUpPage } from '../pages/signup/signup.page';
+import { SignInPage } from "../pages/signin/signin.page";
 
 @NgModule({
-  declarations: [AppComponent, SignInPage],
+  declarations: [AppComponent, SignInPage, SignUpPage],
   entryComponents: [],
   imports: [
     BrowserModule,

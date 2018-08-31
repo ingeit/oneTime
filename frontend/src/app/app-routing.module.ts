@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { SignInPage } from '../pages/signin/signin.page';
+import { SignUpPage } from '../pages/signup/signup.page';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'login', pathMatch: 'full'
+    path: '', redirectTo: 'signin', pathMatch: 'full'
   },
   // {
   //   path: 'home',
@@ -15,15 +17,20 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   {
-    path: 'login',
-    // loadChildren: './login/login.module#LoginPageModule'
+    path: 'signin',
+    // loadChildren: './signin/signin.module#LoginPageModule'
     component: SignInPage
+  },
+  {
+    path: 'signup',
+    // loadChildren: './signin/signin.module#LoginPageModule'
+    component: SignUpPage
   }
 ];
 
 // const routes: Routes = [
-//   { path: '', redirectTo: '/login', pathMatch: 'full' },
-//   { path: 'login', component: LoginPage }, //carga la page por encima del routeroutlet
+//   { path: '', redirectTo: '/signin', pathMatch: 'full' },
+//   { path: 'signin', component: LoginPage }, //carga la page por encima del routeroutlet
 //   { path: 'home', loadChildren: './home/home.module#HomePageModule' } //carga la page sobre el routeroutlet
 // ];
 
