@@ -34,7 +34,7 @@ export class RegisterPage {
   }
 
   constructor(private authSrv: AuthService, private formBuilder: FormBuilder) {
-
+    console.log("hola register")
     this.form = formBuilder.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -51,20 +51,10 @@ export class RegisterPage {
   }
 
   async registrarUsuario() {
+    console.log('TCL: RegisterPage -> asyncregistrarUsuario -> this.form.value', this.form);
     this.formSubmitAttempt = true;
-    console.log('mostrando valores',this.form.value)
-    this.us = {
-      nombre: this.form.value.nombre,
-      apellido: this.form.value.apellido,
-      mail: this.form.value.mail,
-      username: this.form.value.username,
-      password: this.form.value.password
-    }
-
-    console.log(this.us)  
-
     !this.form.valid ? console.log("form para registrar NO es valido") : console.log("form para registrar es valido");
-
+    
     if (this.form.valid) {
       this.authSrv.registrar(this.form.value).then(res => {
 

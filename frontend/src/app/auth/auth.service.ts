@@ -9,6 +9,7 @@ export class AuthService {
   constructor(private api: ApiService) { }
 
   registrar(user) {
+    console.log('TCL: AuthService -> registrar -> user', user);
     return new Promise((resolve, reject) => {
       this.api.post('auth/register', user).then(res => {
         resolve(res);

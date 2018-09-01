@@ -4,7 +4,7 @@ import { RegisterPage } from './auth/register/register.page';
 import { LoginPage } from './auth/login/login.page';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'register', pathMatch: 'full' }, //aqui deberia redirigir a login
   { path: 'register', component: RegisterPage },
   { path: 'login', component: LoginPage }
 
