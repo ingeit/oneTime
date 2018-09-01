@@ -10,10 +10,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { UserService } from '../providers/user/user.service';
+import { AuthService } from './auth/auth.service';
 import { ApiService } from '../providers/api/api.service';
-import { LoginPage } from './login/login.page';
-import { RegisterPage } from './register/register.page';
+import { LoginPage } from './auth/login/login.page';
+import { RegisterPage } from './auth/register/register.page';
 
 @NgModule({
   declarations: [AppComponent, LoginPage, RegisterPage],
@@ -27,7 +27,7 @@ import { RegisterPage } from './register/register.page';
     ReactiveFormsModule
   ],
   providers: [
-    UserService,
+    AuthService,
     ApiService,
     StatusBar,
     SplashScreen,

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from "../api/api.service";
-// import { resolve, reject } from 'q';
+import { ApiService } from "../../providers/api/api.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class AuthService {
 
   constructor(private api: ApiService) { }
 

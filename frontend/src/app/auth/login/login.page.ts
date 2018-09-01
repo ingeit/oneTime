@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { UserService } from "../../providers";
-import { Usuario } from "../../models/Usuario";
+import { Usuario } from "../usuario.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class RegisterPage {
+export class LoginPage {
 
   us: Usuario;
   nombre: string;
@@ -33,7 +33,7 @@ export class RegisterPage {
     ],
   }
 
-  constructor(private userSrv: UserService, private formBuilder: FormBuilder) {
+  constructor(private authSrv: AuthService, private formBuilder: FormBuilder) {
 
     this.form = formBuilder.group({
       nombre: ['', Validators.required],
@@ -52,21 +52,19 @@ export class RegisterPage {
 
   async registrarUsuario() {
     this.formSubmitAttempt = true;
-    console.log('mostrando valores',this.form.value)
-    this.us = {
-      nombre: this.form.value.nombre,
-      apellido: this.form.value.apellido,
-      mail: this.form.value.mail,
-      username: this.form.value.username,
-      password: this.form.value.password
-    }
 
-    console.log(this.us)  
+    this.us = {
+      nombre: this.nombre,
+      apellido: this.apellido,
+      mail: this.mail,
+      username: this.username,
+      password: this.password
+    }
 
     !this.form.valid ? console.log("form para registrar NO es valido") : console.log("form para registrar es valido");
 
     if (this.form.valid) {
-      this.userSrv.registrar(this.form.value).then(res => {
+      this.authSrv.registrar(this.us).then(res => {
 
         // this.mostrarModal(res,'green');
         console.log('Todo bien, usuario registrado! :D', res);
