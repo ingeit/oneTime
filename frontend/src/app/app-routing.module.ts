@@ -1,31 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { SignInPage } from '../pages/signin/signin.page';
-import { SignUpPage } from '../pages/signup/signup.page';
+import { RegisterPage } from './register/register.page';
+import { LoginPage } from './login/login.page';
 
 const routes: Routes = [
-  {
-    path: '', redirectTo: 'signin', pathMatch: 'full'
-  },
-  // {
-  //   path: 'home',
-  //   loadChildren: './home/home.module#HomePageModule'
-  // },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
-  {
-    path: 'signin',
-    // loadChildren: './signin/signin.module#LoginPageModule'
-    component: SignInPage
-  },
-  {
-    path: 'signup',
-    // loadChildren: './signin/signin.module#LoginPageModule'
-    component: SignUpPage
-  }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'register', component: RegisterPage },
+  { path: 'login', component: LoginPage }
+
 ];
 
 // const routes: Routes = [

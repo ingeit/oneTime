@@ -4,11 +4,11 @@ import { Usuario } from "../../models/Usuario";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.page.html',
-  styleUrls: ['./signin.page.scss'],
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class SignInPage {
+export class LoginPage {
 
   us: Usuario;
   nombre: string;

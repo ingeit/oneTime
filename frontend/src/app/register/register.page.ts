@@ -4,11 +4,11 @@ import { Usuario } from "../../models/Usuario";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.page.html',
-  styleUrls: ['./signup.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class SignUpPage {
+export class RegisterPage {
 
   us: Usuario;
   nombre: string;

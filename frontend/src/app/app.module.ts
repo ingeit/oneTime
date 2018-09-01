@@ -12,11 +12,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from '../providers/user/user.service';
 import { ApiService } from '../providers/api/api.service';
-import { SignUpPage } from '../pages/signup/signup.page';
-import { SignInPage } from "../pages/signin/signin.page";
+import { LoginPage } from './login/login.page';
+import { RegisterPage } from './register/register.page';
 
 @NgModule({
-  declarations: [AppComponent, SignInPage, SignUpPage],
+  declarations: [AppComponent, LoginPage, RegisterPage],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -31,8 +31,8 @@ import { SignInPage } from "../pages/signin/signin.page";
     ApiService,
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }    
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
