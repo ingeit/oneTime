@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, RouteReuseStrategy, Routes } from '@angular/router';
+import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -14,9 +14,10 @@ import { AuthService } from './auth/auth.service';
 import { ApiService } from '../providers/api/api.service';
 import { LoginPage } from './auth/login/login.page';
 import { RegisterPage } from './auth/register/register.page';
+import { WelcomePage } from "./welcome/welcome.page";
 
 @NgModule({
-  declarations: [AppComponent, LoginPage, RegisterPage],
+  declarations: [AppComponent, LoginPage, RegisterPage, WelcomePage],
   entryComponents: [],
   imports: [
     BrowserModule,
