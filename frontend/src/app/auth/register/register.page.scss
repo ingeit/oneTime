@@ -1,0 +1,21 @@
+// $text-input-highlight-color-invalid: #ea6153;
+
+.warning-message-hidden {
+    padding: 0px !important;
+    margin: 0px !important;
+    visibility: hidden !important;
+    color: #ea6153;
+    font-size: 12px;
+}
+.warning-message-shown {
+    padding: 0px !important;
+    margin: 0px !important;
+    visibility: visible !important;
+    color: #ea6153;
+    font-size: 12px;
+}
+
+.warning-message {
+    color: #ea6153;
+    font-size: 12px;
+}

@@ -1,9 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>OneTime</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
 
   <div text-center>
@@ -23,18 +17,22 @@
       
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
-        <ion-input autofocus formControlName="nombre" type="text"></ion-input>
+        <ion-input autofocus formControlName="nombre" type="text" required></ion-input>
       </ion-item>
-      <ion-item style="color: #ea6153;" *ngIf="!form.controls.nombre.valid 
-      && (form.controls.nombre.dirty || formSubmitAttempt || form.controls.nombre.touched )">
-        <span>Ingrese nombre!</span>
-      </ion-item>
+      <!-- <ion-item [className]="(!form.controls.nombre.valid && 
+      (form.controls.nombre.dirty || formSubmitAttempt || form.controls.nombre.touched )) ? 
+      'warning-message-shown' : 'warning-message-hidden'">
+        <p>Ingrese nombre!</p>
+      </ion-item> -->
+      <p [className]="(!form.controls.nombre.valid && 
+      (form.controls.nombre.dirty || formSubmitAttempt || form.controls.nombre.touched )) ? 
+      'warning-message-shown' : 'warning-message-hidden'">   Ingrese nombre!</p>
 
       <ion-item>
         <ion-label position="floating">Apellido</ion-label>
         <ion-input formControlName="apellido" type="text"></ion-input>
       </ion-item>
-      <ion-item style="color: #ea6153;" *ngIf="!form.controls.apellido.valid  
+      <ion-item class="warning-message" *ngIf="!form.controls.apellido.valid  
       && (form.controls.apellido.dirty || formSubmitAttempt || form.controls.apellido.touched)">
         <p>Ingrese apellido!</p>
       </ion-item>
@@ -43,7 +41,7 @@
         <ion-label position="floating">Email</ion-label>
         <ion-input formControlName="mail" type="email"></ion-input>
       </ion-item>
-      <ion-item style="color: #ea6153;" *ngIf="!form.controls.mail.valid  
+      <ion-item class="warning-message" *ngIf="!form.controls.mail.valid  
         && (form.controls.mail.dirty || formSubmitAttempt || form.controls.mail.touched)">
         <p>Ingrese email!</p>
       </ion-item>
@@ -52,7 +50,7 @@
         <ion-label position="floating">Usuario</ion-label>
         <ion-input formControlName="username" type="text"></ion-input>
       </ion-item>
-      <ion-item style="color: #ea6153;" *ngIf="!form.controls.username.valid  
+      <ion-item class="warning-message" *ngIf="!form.controls.username.valid  
           && (form.controls.username.dirty || formSubmitAttempt || form.controls.username.touched)">
         <p>Ingrese usuario!</p>
       </ion-item>
@@ -61,7 +59,7 @@
         <ion-label position="floating">Clave</ion-label>
         <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
-      <ion-item style="color: #ea6153;" *ngIf="!form.controls.password.valid  
+      <ion-item class="warning-message" *ngIf="!form.controls.password.valid  
             && (form.controls.password.dirty || formSubmitAttempt || form.controls.password.touched)">
         <p>Ingrese clave!</p>
       </ion-item>
@@ -70,11 +68,10 @@
         <ion-label position="floating">Repita clave</ion-label>
         <ion-input formControlName="passwordRepeat" type="password"></ion-input>
       </ion-item>
-      <ion-item style="color: #ea6153;" *ngIf="!form.controls.passwordRepeat.valid  
+      <ion-item class="warning-message" *ngIf="!form.controls.passwordRepeat.valid  
             && (form.controls.passwordRepeat.dirty || formSubmitAttempt || form.controls.passwordRepeat.touched)">
         <p>Repita la clave!</p>
       </ion-item>
-
 
       <hr />
       <div padding id="botones">
