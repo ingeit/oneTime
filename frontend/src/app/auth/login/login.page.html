@@ -10,8 +10,9 @@
         <ion-label position="floating">Usuario</ion-label>
         <ion-input formControlName="username" type="text"></ion-input>
       </ion-item>
-      <ion-item style="color: #ea6153;" *ngIf="!form.controls.username.valid  
-          && (form.controls.username.dirty || formSubmitAttempt || form.controls.username.touched)">
+      <ion-item [className]="!form.controls.username.valid  
+        && (form.controls.username.dirty || formSubmitAttempt || form.controls.username.touched) ? 
+        'warning-message-visible' : 'warning-message-hidden'">
         <p>Ingrese usuario!</p>
       </ion-item>
 
@@ -19,12 +20,11 @@
         <ion-label position="floating">Clave</ion-label>
         <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
-      <ion-item style="color: #ea6153;" *ngIf="!form.controls.password.valid  
-            && (form.controls.password.dirty || formSubmitAttempt || form.controls.password.touched)">
+      <ion-item [className]="!form.controls.password.valid  
+        && (form.controls.password.dirty || formSubmitAttempt || form.controls.password.touched) ? 
+        'warning-message-visible' : 'warning-message-hidden'">
         <p>Ingrese clave!</p>
-      </ion-item>
-
-    
+      </ion-item>    
 
       <hr />
       <div padding id="botones">
