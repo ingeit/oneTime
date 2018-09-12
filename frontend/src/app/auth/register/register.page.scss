@@ -1,0 +1,45 @@
+.warning-message {
+    height: 12px !important;
+    padding: 0px !important;
+    margin-bottom: 10px !important;
+    color: #ea6153;
+    font-size: 12px;
+}
+
+.warning-message-hidden {
+    height: 10px !important;
+    padding: 0px !important;
+    margin-bottom: 10px !important;
+    visibility: hidden !important;
+    color: #ea6153;
+    font-size: 12px;
+}
+.warning-message-visible {
+    height: 10px !important;
+    padding: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+    visibility: visible !important;
+    color: #ea6153;
+    font-size: 12px;
+}
+
+.form-item {
+    width: 280px;
+    margin: 0 auto;
+}
+
+ion-item {
+    --padding-bottom: 0px;
+    --padding-top: 0px;
+}
+
+ion-list {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.item {
+    min-height: 12px !important;
+    // height: 12px;
+}
